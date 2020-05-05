@@ -1,0 +1,73 @@
+/*!
+	Theme Name: Hello Elementor
+	Theme URI: https://elementor.com/hello-theme/?utm_source=wp-themes&utm_campaign=theme-uri&utm_medium=wp-dash
+	Description: A plain-vanilla & lightweight theme for Elementor page builder
+	Author: Elementor Team
+	Author URI: https://elementor.com/?utm_source=wp-themes&utm_campaign=author-uri&utm_medium=wp-dash
+	Version: 2.3.0
+	Stable tag: 2.3.0
+	Requires at least: 4.7
+	Tested up to: 5.4
+	License: GNU General Public License v3 or later.
+	License URI: https://www.gnu.org/licenses/gpl-3.0.html
+	Text Domain: hello-elementor
+	Tags: flexible-header, custom-colors, custom-menu, custom-logo, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+/*!
+ * Based on Normalize.css v8.0.0, HTML5 Boilerplate v6.1.0, & Bootstrap Reboot v4.1.0 | Under MIT License
+*/
+
+
+
+
+/* Site Header */
+
+.site-nav li {
+	display: block;
+    padding: 12px 0;
+    padding: 1.2rem 0;
+    font-size: 1.7rem;
+}
+.site-nav li a {
+	padding: 0;
+	margin: 0;
+}
+
+@media (min-width: 1100px) {
+	.site-nav li+li {
+	    margin-left: 3.6rem;
+	}
+	.site-nav a {
+	    margin-left: 3.6rem;
+	}
+}
+@media (min-width: 860px){
+	.site-nav li {
+		display: inline-block;
+	}
+	.site-nav li+li {
+	    margin-left: 2.4rem;
+	}
+	.site-nav a {
+	    margin-left: 2.4rem;
+	}
+}
+
+
+/* Widgets */
+
+.info-columns {
+	display: flex;
+	flex-direction: column;
+}
+.info-columns .capsule-a {
+	margin: 8px !important;
+	width: 100%;
+}
+
+@media (min-width: 768px){
+	.info-columns {
+		flex-direction: row;
+	}
+}
+
