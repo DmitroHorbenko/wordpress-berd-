@@ -84,7 +84,7 @@ class Info_Columns extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'elementor-hello-world' ];
+		// return [ 'elementor-hello-world' ];
 	}
 
 	/**
@@ -104,13 +104,13 @@ class Info_Columns extends Widget_Base {
 			]
 		);
 
-		// $this->add_control(
-		// 	'title',
-		// 	[
-		// 		'label' => __( 'Title', 'elementor-hello-world' ),
-		// 		'type' => Controls_Manager::TEXT,
-		// 	]
-		// );
+		$this->add_control(
+			'title',
+			[
+				'label' => __( 'Title', 'elementor-hello-world' ),
+				'type' => Controls_Manager::TEXT,
+			]
+		);
 
 
 
@@ -126,57 +126,24 @@ class Info_Columns extends Widget_Base {
 				);
 
 				$repeater->add_control(
-					'list_link_title', [
-						'label' => __( 'Link Title', 'plugin-domain' ),
-						'type' => \Elementor\Controls_Manager::TEXT,
-						'default' => __( 'List Title' , 'plugin-domain' ),
-						'label_block' => true,
+					'list_content', [
+						'label' => __( 'Content', 'plugin-domain' ),
+						'type' => \Elementor\Controls_Manager::WYSIWYG,
+						'default' => __( 'List Content' , 'plugin-domain' ),
+						'show_label' => false,
 					]
 				);
 
 				$repeater->add_control(
-							'list_link', 	[
-								'label' => __( 'Link', 'plugin-domain' ),
-								'type' => \Elementor\Controls_Manager::URL,
-								'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
-								'show_external' => true,
-								'default' => [
-									'url' => '',
-									'is_external' => true,
-									'nofollow' => true,
-								],
-							]
-						);
-
-				$repeater->add_control(
-							'image',
-							[
-								'label' => __( 'Choose Image', 'plugin-domain' ),
-								'type' => \Elementor\Controls_Manager::MEDIA,
-								'default' => [
-									'url' => \Elementor\Utils::get_placeholder_image_src(),
-								],
-							]
-						);
-				// $repeater->add_control(
-				// 	'list_content', [
-				// 		'label' => __( 'Content', 'plugin-domain' ),
-				// 		'type' => \Elementor\Controls_Manager::WYSIWYG,
-				// 		'default' => __( 'List Content' , 'plugin-domain' ),
-				// 		'show_label' => false,
-				// 	]
-				// );
-
-				// $repeater->add_control(
-				// 	'list_color',
-				// 	[
-				// 		'label' => __( 'Color', 'plugin-domain' ),
-				// 		'type' => \Elementor\Controls_Manager::COLOR,
-				// 		'selectors' => [
-				// 			'{{WRAPPER}} {{CURRENT_ITEM}}' => 'color: {{VALUE}}'
-				// 		],
-				// 	]
-				// );
+					'list_color',
+					[
+						'label' => __( 'Color', 'plugin-domain' ),
+						'type' => \Elementor\Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} {{CURRENT_ITEM}}' => 'color: {{VALUE}}'
+						],
+					]
+				);
 
 				$this->add_control(
 					'list',
@@ -250,17 +217,14 @@ class Info_Columns extends Widget_Base {
 		if ( $settings['list'] ) {
 			echo '<div class="l-container l-container--medium info-columns">';
 			foreach (  $settings['list'] as $item ) {
-					$target = $item['website_link']['is_external'] ? ' target="_blank"' : '';
-					$nofollow = $item['website_link']['nofollow'] ? ' rel="nofollow"' : '';
-					echo '<a href="' . $item['website_link']['url'] . '"' . $target . $nofollow . '> ... </a>';
 				?>
 
 
-			    <div class="capsule-a !js-anim-in">
-			        <a href="<?php echo $item['website_link']['url']; ?>" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo  $item['image']['url']; ?>');"></span></a>
+			    <div class="capsule-a js-anim-in">
+			        <a href="/selling" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bre-final-sellers.jpg');"></span></a>
 			        <h4 class="capsule-a__title t-title-b"><?php echo $item['list_title']; ?></h4>
 			        <div class="capsule-a__link">
-			            <a href="<?php echo $item['website_link']['url']; ?>" class="t-body link" <?php echo $target . $nofollow; ?>><?php echo $item['list_link_title']; ?></a>
+			            <a href="/selling" class="t-body link">Sell With Us</a>
 			        </div>
 			    </div>
 
@@ -274,7 +238,16 @@ class Info_Columns extends Widget_Base {
 		}
 
 		?>
-
+		
+		<script type="text/javascript">
+			if( elementor ){
+				setTimeout(function(){
+					document.querySelectorAll('.js-anim-in').forEach(function(e){
+						e.classList.add('is-changed');
+					});
+				}, 0);
+			}
+		</script>
 
 		<?php
 
@@ -291,5 +264,38 @@ class Info_Columns extends Widget_Base {
 	 */
 	protected function _content_template() {
 	}
-	
+	protected function _content_template2() {
+		?>
+		<!-- <div class="title"> -->
+			<!-- {{{ settings.title }}} -->
+		<!-- </div> -->
+
+<div class="l-container l-container--medium">
+
+    <div class="capsule-a">
+        <a href="/selling" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bre-final-sellers.jpg');"></span></a>
+        <h4 class="capsule-a__title t-title-b">Info for Sellers</h4>
+        <div class="capsule-a__link">
+            <a href="/selling" class="t-body link">Sell With Us</a>
+        </div>
+    </div>
+
+    <div class="capsule-a">
+        <a href="/buying" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bre-final-buyers.jpg');"></span></a>
+        <h4 class="capsule-a__title t-title-b">Info for Buyers</h4>
+        <div class="capsule-a__link">
+            <a href="/buying" class="t-body link">Learn about Our Process</a>
+        </div>
+    </div>
+
+    <div class="capsule-a">
+        <a href="/buying" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bre-final-buyers.jpg');"></span></a>
+        <h4 class="capsule-a__title t-title-b">Info for Buyers 2</h4>
+        <div class="capsule-a__link">
+            <a href="/buying" class="t-body link">Learn about Our Process 2</a>
+        </div>
+    </div>
+</div>
+		<?php
+	}
 }

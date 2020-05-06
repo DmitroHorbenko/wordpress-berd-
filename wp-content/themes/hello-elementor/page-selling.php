@@ -22,21 +22,19 @@ get_header();
     endwhile;
     ?>
 
+    <!-- elementor widget Hero -->
     <div class="hero hero--salmon">
         <div class="hero__text">
             <h1 class="t-hero">
                 <span class="js-anim-in">Selling your house can be</span><span class="js-anim-in"><em>a lot</em> easier than you think.</span>
             </h1>
-
-
         </div>
-
         <a class="hero__arrow" href="#next"></a>
-
     </div>
+
+
     <div class="l-container l-container--w-spacing">
         <div class="l-one-col" id="next">
-
             <div class="l-one-col__col">
                 <div class="js-anim-in">
                     <h5 class="t-hero u-align-center">
@@ -55,7 +53,7 @@ get_header();
     </div>
 
 
-
+    <!-- elementor widget Selling_Gallery -->
     <div class="l-container">
         <div class="l-six-col-grid">
 
@@ -109,6 +107,8 @@ get_header();
 
         </div>
     </div>
+
+    <!-- elementor widget Testimonial_Single -->
     <div class="testimonial-hero testimonial-hero--turquoise js-anim-in">
         <div class="testimonial-hero__inner">
             <div class="testimonial-hero__img js-anim-in" style="background-image: url('/dist/images/seller-01.jpg');">
@@ -129,9 +129,9 @@ get_header();
         </div>
     </div>
 
+
+    <!-- elementor widget Prefooter_CTA -->
     <div class="l-container">
-
-
         <div class="banner-a js-anim-in">
             <div class="banner-a__eyebrow">
                 <h6 class="t-eyebrow">Get in Touch</h6>
@@ -144,7 +144,6 @@ get_header();
                   Get in touch.
                   </a>
             </div>
-
         </div>
     </div>
 

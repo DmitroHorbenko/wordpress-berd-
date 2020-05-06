@@ -175,6 +175,15 @@ class Hero extends Widget_Base {
         </h1>
     </div>
 </div>
+<script type="text/javascript">
+	if( elementor ){
+		setTimeout(function(){
+			document.querySelectorAll('.js-anim-in').forEach(function(e){
+				e.classList.add('is-changed');
+			});
+		}, 0);
+	}
+</script>
 
 		<?php
 	}
