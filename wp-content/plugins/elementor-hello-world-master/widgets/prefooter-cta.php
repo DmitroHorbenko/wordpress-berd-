@@ -84,7 +84,7 @@ class Prefooter_CTA extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		// return [ 'elementor-hello-world' ];
+		//return [ 'elementor-hello-world' ];
 	}
 
 	/**
@@ -155,9 +155,9 @@ class Prefooter_CTA extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		// echo '<div class="title">';
-		// echo $settings['title'];
-		// echo '</div>';
+		/*echo '<div class="title">';
+		echo $settings['title'];
+		echo '</div>';*/
 
 		?>
 

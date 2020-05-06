@@ -84,7 +84,7 @@ class Info_Columns extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		// return [ 'elementor-hello-world' ];
+		//return [ 'elementor-hello-world' ];
 	}
 
 	/**
@@ -217,6 +217,7 @@ class Info_Columns extends Widget_Base {
 		if ( $settings['list'] ) {
 			echo '<div class="l-container l-container--medium info-columns">';
 			foreach (  $settings['list'] as $item ) {
+
 				?>
 
 
@@ -238,7 +239,7 @@ class Info_Columns extends Widget_Base {
 		}
 
 		?>
-		
+
 		<script type="text/javascript">
 			if( elementor ){
 				setTimeout(function(){

@@ -63,6 +63,7 @@ class Plugin {
 
 		require_once( __DIR__ . '/widgets/hero.php' );
 		require_once( __DIR__ . '/widgets/info-columns.php' );
+		require_once( __DIR__ . '/widgets/about-us.php' );
 		require_once( __DIR__ . '/widgets/prefooter-cta.php' );
 	}
 
@@ -84,8 +85,18 @@ class Plugin {
 
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Hero() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Info_Columns() );
-		// Prefooter_CTA
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\About_Us() ); // About_Lead
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Prefooter_CTA() );
+
+		// Prefooter_CTA
+		// Hero Media
+		// About_Description
+		// Testimonials_Slider
+		// About_Loacation
+		// Buying_Details
+		// Testimonial_Single
+		// Selling_Gallery
+
 	}
 
 	/**
@@ -103,7 +114,11 @@ class Plugin {
 
 		// Register widgets
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
+
 	}
+
+
+
 }
 
 // Instantiate Plugin Class

@@ -22,21 +22,22 @@ get_header();
     endwhile;
     ?>
 
-    <!-- elementor widget Hero -->
+
     <div class="hero hero--blue hero--underlap">
         <div class="hero__text">
             <h1 class="t-hero">
                 <span class="js-anim-in h-nowrap">A young, nimble team that’s</span><span class="js-anim-in h-nowrap">making real estate <em>personal</em>.</span>
             </h1>
-        </div>
-    </div>
 
-    <!-- elementor widget Hero Media -->
+
+        </div>
+
+
+    </div>
     <div class="l-container l-container--medium">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bre-final-office-01.jpg" alt="" class="anim-in-2">
     </div>
 
-    <!-- elementor widget About_Description -->
     <div class="l-container">
         <div class="l-two-col">
             <div class="l-two-col__col">
@@ -217,7 +218,7 @@ get_header();
         </div>
     </div>
 
-    <!-- elementor widget Testimonials_Slider -->
+
     <div class="l-container">
 
 
@@ -309,8 +310,10 @@ get_header();
         </div>
     </div>
 
-    <!-- elementor widget Prefooter_CTA -->
+
     <div class="l-container">
+
+
         <div class="banner-a js-anim-in">
             <div class="banner-a__eyebrow">
                 <h6 class="t-eyebrow">let&#039;s chat</h6>
@@ -323,6 +326,7 @@ get_header();
                   Let us buy you a coffee.
                   </a>
             </div>
+
         </div>
     </div>
 

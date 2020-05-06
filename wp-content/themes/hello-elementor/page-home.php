@@ -53,8 +53,7 @@ get_header();
     </div> -->
 
 
-    <!-- elementor widget About_Us -->
-    <!-- <div class="l-section l-section--w-spacing l-section--salmon">
+    <div class="l-section l-section--w-spacing l-section--salmon">
         <div class="l-container l-container--medium">
             <div class="callout-a">
                 <div class="callout-a__image js-anim-in">
@@ -192,12 +191,11 @@ get_header();
             </div>
         </div>
 
-    </div> -->
+    </div>
 
-    <!-- elementor widget Prefooter_CTA -->
-    <!-- <div class="l-container">
+    <div class="l-container">
 
-        
+
         <div class="banner-a js-anim-in">
             <div class="banner-a__eyebrow">
                 <h6 class="t-eyebrow">let&#039;s chat</h6>
@@ -212,7 +210,7 @@ get_header();
             </div>
 
         </div>
-    </div> -->
+    </div>
 
 
     <?php 

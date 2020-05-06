@@ -22,21 +22,22 @@ get_header();
     endwhile;
     ?>
 
-    <!-- elementor widget Hero -->
+
     <div class="hero hero--green hero--underlap">
         <div class="hero__text">
             <h1 class="t-hero">
                 <span class="js-anim-in">We provide expert insight to</span><span class="js-anim-in">make buying a home <em>a breeze</em>.</span>
             </h1>
-        </div>
-    </div>
 
-    <!-- elementor widget Hero Media -->
+
+        </div>
+
+
+    </div>
     <div class="l-container l-container--medium anim-in-2" poster="/dist/images/buying-video-poster.jpg">
         <video autoplay loop><source src="/dist/videos/ph-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>
     </div>
 
-    <!-- elementor widget Buying_Details -->
     <div class="l-container">
         <div class="l-two-col">
             <div class="l-two-col__col">
@@ -92,7 +93,6 @@ get_header();
         </div>
     </div>
 
-    <!-- elementor widget Testimonial_Single -->
     <div class="testimonial-hero testimonial-hero--turquoise js-anim-in">
         <div class="testimonial-hero__inner">
             <div class="testimonial-hero__img js-anim-in" style="background-image: url('');">
@@ -113,8 +113,9 @@ get_header();
         </div>
     </div>
 
-    <!-- elementor widget Prefooter_CTA -->
     <div class="l-container">
+
+
         <div class="banner-a js-anim-in">
             <div class="banner-a__eyebrow">
                 <h6 class="t-eyebrow">Get in Touch</h6>
@@ -127,6 +128,7 @@ get_header();
                   Get in touch
                   </a>
             </div>
+
         </div>
     </div>
 
