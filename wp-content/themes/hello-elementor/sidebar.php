@@ -26,28 +26,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <div class="sidebar__inner js-contact-panel">
 
+        <?php 
+        if( get_theme_mod( 'contacts_headline' ) ){
+        ?>
         <div class="sidebar__title">
-            <h5 class="t-title-b">Get<br>in touch<br><em>today</em>.</h6>
+            <!-- <h5 class="t-title-b">Get<br>in touch<br><em>today</em>.</h6> -->
+            <h5 class="t-title-b"><?php echo get_theme_mod( 'contacts_headline', 'Get<br>in touch<br><em>today</em>.' ); ?></h6>
         </div>
+        <?php
+        }
+        ?>
 
+        <?php 
+        if( get_theme_mod( 'contacts_phone' ) ){
+        ?>
         <div class="sidebar__contact-group">
             <h6 class="t-eyebrow">Phone</h6>
-            <p class="t-body">(312) 532-8929</p>
+            <p class="t-body"><?php echo get_theme_mod( 'contacts_phone', '(312) 532-8929' ); ?></p>
         </div>
+        <?php
+        }
+        ?>
 
+        <?php 
+        if( get_theme_mod( 'contacts_email' ) ){
+        ?>
         <div class="sidebar__contact-group">
             <h6 class="t-eyebrow">Email</h6>
-            <a href="mailto:info@berdanrealestate.com" class="t-body">info@berdanrealestate.com</a>
+            <a href="mailto:<?php echo get_theme_mod( 'contacts_email', 'info@berdanrealestate.com' ); ?>" class="t-body"><?php echo get_theme_mod( 'contacts_email', 'info@berdanrealestate.com' ); ?></a>
         </div>
+        <?php
+        }
+        ?>
 
+        <?php
+        if( get_theme_mod( 'contacts_location' ) ){
+        ?>
         <div class="sidebar__contact-group">
             <h6 class="t-eyebrow">Visit</h6>
-            <a class="address" href="https://www.google.com/maps?q=1229+N+Branch+St+%23219+Chicago,+IL+60642&um=1&ie=UTF-8&sa=X&ved=0ahUKEwiMjNuHuNvXAhXD54MKHWUPBjMQ_AUICigB" target="_blank">
-    <address class="t-body address__address">
-      1229 N. North Branch St.<br />#312<br />Chicago, IL 60642
-    </address>
-  </a>
+            <!--             <a class="address" href="https://www.google.com/maps?q=1229+N+Branch+St+%23219+Chicago,+IL+60642&um=1&ie=UTF-8&sa=X&ved=0ahUKEwiMjNuHuNvXAhXD54MKHWUPBjMQ_AUICigB" target="_blank">
+                <address class="t-body address__address">
+                  1229 N. North Branch St.<br />#312<br />Chicago, IL 60642
+                </address>
+            </a> -->
+            <?php echo get_theme_mod( 'contacts_location' ); ?>
         </div>
+        <?php
+        }
+        ?>
 
     </div>
 

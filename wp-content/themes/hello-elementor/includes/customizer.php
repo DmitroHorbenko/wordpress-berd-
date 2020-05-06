@@ -15,6 +15,15 @@ function mytheme_customize_register( $wp_customize ) {
 	// ) ) );
 
 
+ 	// Sanitize text
+	function sanitize_text( $text ) {
+	    return sanitize_text_field( $text );
+	}
+ 	// No Sanitize text
+	function no_sanitize_text( $text ) {
+	    return $text;
+	}
+
 	/* Contacts */
 
 	$wp_customize->add_section( 'contacts_section' , array(
@@ -24,14 +33,17 @@ function mytheme_customize_register( $wp_customize ) {
 
 
 	$wp_customize->add_setting( 'contacts_headline', array(
-		 'default'           => __( 'Get in touch today.', 'mytheme' ),
-		 'sanitize_callback' => ''
+		 'default'           => __( 'Get<br>in touch<br><em>today</em>.', 'mytheme' ),
+		 'sanitize_callback' => 'no_sanitize_text'
 	) );
 	$wp_customize->add_control( new WP_Customize_Control(
 	    $wp_customize,
 		'contacts_headline',
 		    array(
 		        'label'    => __( 'Headline', 'mytheme' ),
+		        'input_attrs' => array(
+                    'placeholder' => __( 'Get<br>in touch<br><em>today</em>.', 'directorist' ),
+                ),
 		        'section'  => 'contacts_section',
 		        'settings' => 'contacts_headline',
 		        'type'     => 'text'
@@ -41,7 +53,7 @@ function mytheme_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'contacts_phone', array(
 		 'default'           => __( '(312) 532-8929', 'mytheme' ),
-		 'sanitize_callback' => ''
+		 'sanitize_callback' => 'no_sanitize_text'
 	) );
 	$wp_customize->add_control( new WP_Customize_Control(
 	    $wp_customize,
@@ -57,7 +69,7 @@ function mytheme_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'contacts_email', array(
 		 'default'           => __( 'info@berdanrealestate.com', 'mytheme' ),
-		 'sanitize_callback' => ''
+		 'sanitize_callback' => 'sanitize_text'
 	) );
 	$wp_customize->add_control( new WP_Customize_Control(
 	    $wp_customize,
@@ -72,16 +84,22 @@ function mytheme_customize_register( $wp_customize ) {
 	);
 
 
-	$wp_customize->add_setting( 'contacts_additional', array(
-		 'sanitize_callback' => ''
+	$wp_customize->add_setting( 'contacts_location', array(
+		 'sanitize_callback' => 'no_sanitize_text',
+		 'default' => '
+                <a class="address" href="https://www.google.com/maps?q=1229+N+Branch+St+%23219+Chicago,+IL+60642&um=1&ie=UTF-8&sa=X&ved=0ahUKEwiMjNuHuNvXAhXD54MKHWUPBjMQ_AUICigB" target="_blank">
+                    <address class="t-body address__address">
+                      1229 N. North Branch St.<br />#312<br />Chicago, IL 60642
+                    </address>
+                  </a>'
 	) );
 	$wp_customize->add_control( new WP_Customize_Control(
 	    $wp_customize,
-		'contacts_additional',
+		'contacts_location',
 		    array(
-		        'label'    => __( 'Additional', 'mytheme' ),
+		        'label'    => __( 'Location', 'mytheme' ),
 		        'section'  => 'contacts_section',
-		        'settings' => 'contacts_additional',
+		        'settings' => 'contacts_location',
 		        'type'     => 'text'
 		    )
 	    )
@@ -100,6 +118,19 @@ function mytheme_customize_register( $wp_customize ) {
 	    'title'      => __( 'Footer', 'mytheme' ),
 	    'priority'   => 30,
 	) );
+
+
+	$wp_customize->add_setting('footer_logo', array(
+		'default' => '',
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+	));
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_logo', array(
+		'label' => __( 'Footer Logo', 'theme-slug' ),
+		'section' => 'footer_section',
+		'settings' => 'footer_logo',
+		))
+	);
 
 
 	$wp_customize->add_setting( 'footer_copyright', array(
