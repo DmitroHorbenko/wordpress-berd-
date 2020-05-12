@@ -23,26 +23,26 @@ get_header();
     ?>
 
     <!-- elementor widget Hero -->
-    <div class="hero hero--green hero--underlap">
+<!--     <div class="hero hero--green hero--underlap">
         <div class="hero__text">
             <h1 class="t-hero">
                 <span class="js-anim-in">We provide expert insight to</span><span class="js-anim-in">make buying a home <em>a breeze</em>.</span>
             </h1>
         </div>
-    </div>
+    </div> -->
 
     <!-- elementor widget Hero Media -->
-    <div class="l-container l-container--medium anim-in-2" poster="/dist/images/buying-video-poster.jpg">
+<!--     <div class="l-container l-container--medium anim-in-2" poster="/dist/images/buying-video-poster.jpg">
         <video autoplay loop><source src="/dist/videos/ph-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>
-    </div>
+    </div> -->
 
     <!-- elementor widget Buying_Details -->
-    <div class="l-container">
+    <!-- <div class="l-container">
         <div class="l-two-col">
             <div class="l-two-col__col">
                 <div class="anim--first js-anim-in">
                     <h5 class="t-hero">
-                        Helping you <br> buy <em>smart</em>.
+                        Helping you buy <em>smart</em>.
                     </h5>
                 </div>
 
@@ -90,10 +90,10 @@ get_header();
 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- elementor widget Testimonial_Single -->
-    <div class="testimonial-hero testimonial-hero--turquoise js-anim-in">
+    <!-- <div class="testimonial-hero testimonial-hero--turquoise js-anim-in">
         <div class="testimonial-hero__inner">
             <div class="testimonial-hero__img js-anim-in" style="background-image: url('');">
             </div>
@@ -111,7 +111,7 @@ get_header();
 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- elementor widget Prefooter_CTA -->
     <div class="l-container">

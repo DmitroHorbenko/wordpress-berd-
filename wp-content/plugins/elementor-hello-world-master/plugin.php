@@ -65,6 +65,9 @@ class Plugin {
 		require_once( __DIR__ . '/widgets/info-columns.php' );
 		require_once( __DIR__ . '/widgets/about-us.php' );
 		require_once( __DIR__ . '/widgets/prefooter-cta.php' );
+		require_once( __DIR__ . '/widgets/hero-media.php' );
+		require_once( __DIR__ . '/widgets/buying-details.php' );
+		require_once( __DIR__ . '/widgets/testimonial-single.php' );
 	}
 
 	/**
@@ -87,9 +90,15 @@ class Plugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Info_Columns() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\About_Us() ); // About_Lead
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Prefooter_CTA() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Hero_Media() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Buying_Details() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Testimonial_Single() );
 
 		// Prefooter_CTA
-		// Hero Media
+		
+		// Hero_Media
+		// Buying_Details
+		// Testimonial_Single
 		// About_Description
 		// Testimonials_Slider
 		// About_Loacation

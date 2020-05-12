@@ -83,9 +83,9 @@ class Info_Columns extends Widget_Base {
 	 *
 	 * @return array Widget scripts dependencies.
 	 */
-	public function get_script_depends() {
-		//return [ 'elementor-hello-world' ];
-	}
+	/*public function get_script_depends() {
+		return [ 'elementor-hello-world' ];
+	}*/
 
 	/**
 	 * Register the widget controls.
@@ -104,16 +104,6 @@ class Info_Columns extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'title',
-			[
-				'label' => __( 'Title', 'elementor-hello-world' ),
-				'type' => Controls_Manager::TEXT,
-			]
-		);
-
-
-
 		$repeater = new \Elementor\Repeater();
 
 				$repeater->add_control(
@@ -124,23 +114,35 @@ class Info_Columns extends Widget_Base {
 						'label_block' => true,
 					]
 				);
-
 				$repeater->add_control(
-					'list_content', [
-						'label' => __( 'Content', 'plugin-domain' ),
-						'type' => \Elementor\Controls_Manager::WYSIWYG,
-						'default' => __( 'List Content' , 'plugin-domain' ),
-						'show_label' => false,
+					'list_link_title', [
+						'label' => __( 'Link Title', 'plugin-domain' ),
+						'type' => \Elementor\Controls_Manager::TEXT,
+						'default' => __( 'List Title' , 'plugin-domain' ),
+						'label_block' => true,
 					]
 				);
-
 				$repeater->add_control(
-					'list_color',
+					'list_link_url',
 					[
-						'label' => __( 'Color', 'plugin-domain' ),
-						'type' => \Elementor\Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} {{CURRENT_ITEM}}' => 'color: {{VALUE}}'
+						'label' => __( 'Link URL', 'plugin-domain' ),
+						'type' => \Elementor\Controls_Manager::URL,
+						'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+						'show_external' => true,
+						'default' => [
+							'url' => '',
+							'is_external' => true,
+							'nofollow' => true,
+						],
+					]
+				);
+				$repeater->add_control(
+					'list_image',
+					[
+						'label' => __( 'Choose Image', 'plugin-domain' ),
+						'type' => \Elementor\Controls_Manager::MEDIA,
+						'default' => [
+							'url' => \Elementor\Utils::get_placeholder_image_src(),
 						],
 					]
 				);
@@ -177,21 +179,21 @@ class Info_Columns extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'text_transform',
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'label' => __( 'Text Transform', 'elementor-hello-world' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => '',
-				'options' => [
-					'' => __( 'None', 'elementor-hello-world' ),
-					'uppercase' => __( 'UPPERCASE', 'elementor-hello-world' ),
-					'lowercase' => __( 'lowercase', 'elementor-hello-world' ),
-					'capitalize' => __( 'Capitalize', 'elementor-hello-world' ),
-				],
-				'selectors' => [
-					'{{WRAPPER}} .title' => 'text-transform: {{VALUE}};',
-				],
+				'name' => 'title_typography',
+				'label' => __( 'Title Typography', 'plugin-domain' ),
+				'selector' => '{{WRAPPER}} .capsule-a__title',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'linl_typography',
+				'label' => __( 'Link Typography', 'plugin-domain' ),
+				'selector' => '{{WRAPPER}} .capsule-a__link a',
 			]
 		);
 
@@ -214,18 +216,26 @@ class Info_Columns extends Widget_Base {
 		echo $settings['title'];
 		echo '</div>';*/
 
+
 		if ( $settings['list'] ) {
 			echo '<div class="l-container l-container--medium info-columns">';
-			foreach (  $settings['list'] as $item ) {
+			if (is_array($settings['list']) || is_object($settings['list']))
+			{
+			foreach( $settings['list'] as $item ){
+
+
+				$target = $item['list_link_url']['is_external'] ? ' target="_blank"' : '';
+				$nofollow = $item['list_link_url']['nofollow'] ? ' rel="nofollow"' : '';
 
 				?>
 
 
 			    <div class="capsule-a js-anim-in">
-			        <a href="/selling" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bre-final-sellers.jpg');"></span></a>
+			        <a href="/selling" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo $item['list_image']['url']; ?>');"></span></a>
 			        <h4 class="capsule-a__title t-title-b"><?php echo $item['list_title']; ?></h4>
 			        <div class="capsule-a__link">
-			            <a href="/selling" class="t-body link">Sell With Us</a>
+			            <!-- <a href="/selling" class="t-body link">Sell With Us</a> -->
+			            <?php echo '<a class="t-body link" href="' . $item['list_link_url']['url'] . '"' . $target . $nofollow . '>' . $item['list_link_title'] . '</a>'; ?>
 			        </div>
 			    </div>
 
@@ -234,6 +244,7 @@ class Info_Columns extends Widget_Base {
 
 				//echo '<dt class="elementor-repeater-item-' . $item['_id'] . '">' . $item['list_title'] . '</dt>';
 				//echo '<dd>' . $item['list_content'] . '</dd>';
+			}
 			}
 			echo '</div>';
 		}
@@ -265,38 +276,5 @@ class Info_Columns extends Widget_Base {
 	 */
 	protected function _content_template() {
 	}
-	protected function _content_template2() {
-		?>
-		<!-- <div class="title"> -->
-			<!-- {{{ settings.title }}} -->
-		<!-- </div> -->
-
-<div class="l-container l-container--medium">
-
-    <div class="capsule-a">
-        <a href="/selling" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bre-final-sellers.jpg');"></span></a>
-        <h4 class="capsule-a__title t-title-b">Info for Sellers</h4>
-        <div class="capsule-a__link">
-            <a href="/selling" class="t-body link">Sell With Us</a>
-        </div>
-    </div>
-
-    <div class="capsule-a">
-        <a href="/buying" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bre-final-buyers.jpg');"></span></a>
-        <h4 class="capsule-a__title t-title-b">Info for Buyers</h4>
-        <div class="capsule-a__link">
-            <a href="/buying" class="t-body link">Learn about Our Process</a>
-        </div>
-    </div>
-
-    <div class="capsule-a">
-        <a href="/buying" class="capsule-a__img-container"><span class="capsule-a__img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bre-final-buyers.jpg');"></span></a>
-        <h4 class="capsule-a__title t-title-b">Info for Buyers 2</h4>
-        <div class="capsule-a__link">
-            <a href="/buying" class="t-body link">Learn about Our Process 2</a>
-        </div>
-    </div>
-</div>
-		<?php
-	}
+	
 }
